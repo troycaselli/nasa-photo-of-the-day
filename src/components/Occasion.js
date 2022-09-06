@@ -4,9 +4,9 @@ export default function Occasion(props) {
     const {title, date} = props;
 
     return (
-        <div>
+        <div className="occasion">
             <h2>{title}</h2>
-            <h3>{date}</h3>
+            <h4>{date}</h4>
         </div>
     );
 }

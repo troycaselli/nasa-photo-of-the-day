@@ -4,6 +4,6 @@ export default function Image(props) {
     const {image, title} = props;
 
     return (
-        <img src={image} alt={'image of ' + title}/>
+        <img src={image} alt={'image of ' + title} className="image"/>
     );
 }
