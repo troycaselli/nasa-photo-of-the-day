@@ -10,8 +10,10 @@ function App() {
   const [count, setCount] = useState(1);
 
   const counter = (event) => {
-    if (event.target.value > 1 && event.target.value < 6) {
+    if (event.target.value >= 1 && event.target.value < 6) {
       setCount(event.target.value);
+    } else {
+      console.log(`You're stupid! Type in 1-5...`);
     }
   }
 

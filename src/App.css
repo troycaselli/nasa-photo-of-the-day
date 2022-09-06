@@ -98,6 +98,10 @@ footer a {
     align-items: center;
   }
 
+  .occasion {
+    width: 80%;
+  }
+
   .image {
     width: 86.63%;
   }  
