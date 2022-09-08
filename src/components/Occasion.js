@@ -14,10 +14,16 @@ const Container = styled.div`
 
 const H2 = styled.h2`
     margin: 3%;
+    @media (max-width: 500px) {
+        margin: 1%;
+    }
 `;
 
 const H4 = styled.h4`
     margin: 3%;
+    @media (max-width: 500px) {
+        margin: 1% 0 3% 0;
+    }
 `;
 
 export default function Occasion(props) {

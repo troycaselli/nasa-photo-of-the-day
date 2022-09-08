@@ -60,6 +60,7 @@ const Card = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
+  margin: 7% auto;
   @media (max-width: 500px) {
     flex-direction: column-reverse;
     justify-content: center;
@@ -79,6 +80,9 @@ const Return = styled.a`
   background: ${props => props.theme.black};
   text-decoration: none;
   color: ${props => props.theme.secondaryColor};
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 // component
