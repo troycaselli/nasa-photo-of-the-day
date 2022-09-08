@@ -1,62 +1,62 @@
-* {
+/* * {
   background: #F3F3F3;
   color: #0b3d91;
-}
+} */
 
-header {
+/* header {
   height: 100px;
   background: black;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-}
+} */
 
-header img {
+/* header img {
   height: 70%;
   margin-right: 4%;
   background-color: black;
-}
+} */
 
-h1 {
+/* h1 {
   background: black;
   color:  #EE1E00;
-}
+} */
 
-form {
+/* form {
   display: flex;
   justify-content: center;
-}
+} */
 
-#card {
+/* #card {
   max-width: 1000px;
   margin: 3% auto;
-}
+} */
 
-.container {
+/* .container {
   display: flex;
   justify-content: space-evenly;
-}
+} */
 
-.image {
+/* .image {
   width: 40%;
   border-radius: 20px;
-}
+} */
 
-.occasion {
+/* .occasion {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   width: 40%;
-}
+} */
 
-.occasion h2, 
+/* .occasion h2, 
 .occasion h4 {
   margin: 3%;
-}
+} */
 
-p {
+/* p {
   margin: 5% 6.67%;
   padding: 2.5% 4%;
   display: flex;
@@ -64,23 +64,23 @@ p {
   text-align: justify;
   border: 2px solid #0b3d91;
   border-radius: 20px;
-}
+} */
 
-footer {
+/* footer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100px;
   background: black;
-}
+} */
 
-footer a {
+/* footer a {
   background: black;
   text-decoration: none;
   color: #EE1E00;
-}
+} */
 
-@media (max-width: 500px) {
+/* @media (max-width: 600px) {
   header {
     flex-direction: column;
     height: 35vh;
@@ -105,4 +105,4 @@ footer a {
   .image {
     width: 86.63%;
   }  
-}
+} */
