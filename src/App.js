@@ -43,13 +43,20 @@ const H1 = styled.h1`
 
 const Form = styled.form`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 const FormInput = styled.input`
   border: 2px solid ${props => props.theme.tertiaryColor};
   outline-color: ${props => props.theme.tertiaryColor};
   border-radius: 5px;
+`;
+
+const Error = styled.p`
+  font-size: .75rem;
+  color: #8B0000
 `;
 
 const Card = styled.div`
@@ -89,19 +96,27 @@ const Return = styled.a`
 function App() {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(1);
+  const [input, setInput] = useState('');
+  const [error, setError] = useState('');
 
-  const counter = (event) => {
-    if (event.target.value >= 1 && event.target.value < 6) {
-      setCount(event.target.value);
-    } else {
-      console.log(`Why don't you follow directions?! Type in 1-5...`);
+  const counter = (evt) => {
+    if (evt.key === 'Enter') {
+      if (evt.target.value >= 1 && evt.target.value < 6) {
+        setCount(evt.target.value);
+      } else {
+        setCount(0)
+        setError('*Input must be between numbers 1-5')
+      }
     }
+  }
+
+  const changeInput = (evt) => {
+    setInput(evt.target.value);
   }
 
   useEffect(() => {
     axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=${count}`)
       .then(res => {
-        console.log(res);
         setData(res.data);
       }).catch(err => console.error(err));
   }, [count])
@@ -113,13 +128,20 @@ function App() {
         <H1>NASA APOD Gallery</H1>
       </Header>
       <Form>
-        <label>Image Count: <FormInput type='text' placeholder='#1-5' onChange={counter}/></label>
+        <label>Image Count: <FormInput 
+          type='text'
+          placeholder='#1-5'
+          value={input}
+          onChange={changeInput}
+          onKeyDown={counter}
+        /></label>
+        {error && <Error>{error}</Error>}
       </Form>
-      {data.map(element => {
+      {data.map((element, idx) => {
         return ( 
-          <Card>
+          <Card key={idx}>
             <Container>
-              <Image image={element.hdurl} title={element.title} />
+              <Image image={element.hdurl} title={element.title}/>
               <Occasion title={element.title} date={element.date}/>
             </Container>
             <Description explanation={element.explanation}/>
