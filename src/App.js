@@ -99,19 +99,21 @@ function App() {
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
 
+  const changeInput = (evt) => {
+    setInput(evt.target.value);
+  }
+
   const counter = (evt) => {
     if (evt.key === 'Enter') {
       if (evt.target.value >= 1 && evt.target.value < 6) {
         setCount(evt.target.value);
+        setError('')
+        evt.preventDefault()
       } else {
-        setCount(0)
         setError('*Input must be between numbers 1-5')
+        evt.preventDefault()
       }
     }
-  }
-
-  const changeInput = (evt) => {
-    setInput(evt.target.value);
   }
 
   useEffect(() => {
