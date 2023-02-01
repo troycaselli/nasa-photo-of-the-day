@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
-// import "./App.css";
+// import "./App.css"; // remove styled-components to use
+import styled from 'styled-components';
+
 import Description from './components/Description';
 import Image from './components/Image';
 import Occasion from './components/Occasion';
-import styled from 'styled-components';
 
 // 'CSS'
 const Universal = styled.div`
@@ -105,8 +106,8 @@ function App() {
 
   const counter = (evt) => {
     if (evt.key === 'Enter') {
-      if (evt.target.value >= 1 && evt.target.value < 6) {
-        setCount(evt.target.value);
+      if (parseInt(evt.target.value) >= 1 && parseInt(evt.target.value) < 6) {
+        setCount(parseInt(evt.target.value));
         setError('')
         evt.preventDefault()
       } else {
@@ -130,26 +131,30 @@ function App() {
         <H1>NASA APOD Gallery</H1>
       </Header>
       <Form>
-        <label>Image Count: <FormInput 
-          type='text'
-          placeholder='#1-5'
-          value={input}
-          onChange={changeInput}
-          onKeyDown={counter}
-        /></label>
+        <label>Image Count: 
+          <FormInput 
+            type='text'
+            placeholder='#1-5'
+            value={input}
+            onChange={changeInput}
+            onKeyDown={counter} 
+          />
+        </label>
         {error && <Error>{error}</Error>}
       </Form>
-      {data.map((element, idx) => {
-        return ( 
-          <Card key={idx}>
-            <Container>
-              <Image image={element.hdurl} title={element.title}/>
-              <Occasion title={element.title} date={element.date}/>
-            </Container>
-            <Description explanation={element.explanation}/>
-          </Card>
-        )
-      })}
+      <section>
+        {data.map((element, idx) => {
+          return ( 
+            <Card key={idx}>
+              <Container>
+                <Image image={element.hdurl} title={element.title}/>
+                <Occasion title={element.title} date={element.date}/>
+              </Container>
+              <Description explanation={element.explanation}/>
+            </Card>
+          )
+        })}
+      </section>
       <Footer>
         <Return href="#">Return to Top</Return>
       </Footer>

@@ -15,7 +15,6 @@ const Explanation = styled.p`
     text-align: justify;
     border: 2px solid ${props => props.theme.tertiaryColor};
     border-radius: 20px;
-
     opacity: 0;
     animation: ${kf} 2s ease-in-out forwards;
 `;
